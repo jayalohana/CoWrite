@@ -10,5 +10,9 @@ cors: {
 });
 
 io.on('connection', socket => {
-    console.log('connected');
-})
+    console.log("A user connected"); // This should log on any client connection
+
+    socket.on('send-changes', delta => {
+        console.log("Delta received", delta); // Corrected for clarity
+    });
+});
